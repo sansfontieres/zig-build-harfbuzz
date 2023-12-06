@@ -48,7 +48,7 @@ pub fn build(b: *std.Build) !void {
         lib.linkFramework("ApplicationServices");
     }
 
-    lib.addCSourceFiles(srcs, flags.items);
+    lib.addCSourceFiles(.{ .files = srcs, .flags = flags.items });
 
     lib.installHeadersDirectoryOptions(.{
         .source_dir = .{ .path = "upstream/src" },
